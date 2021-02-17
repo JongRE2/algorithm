@@ -7,7 +7,6 @@ def dividing(x):
             cnt+=1
     return cnt*2
 str=input()
-size=len(str)
 sum=0
 for i in str:
     temp=ord(i)-48
