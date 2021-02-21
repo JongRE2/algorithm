@@ -1,18 +1,18 @@
+dx=[-1,0,1,0]
+dy=[0,1,0,-1]
 num=int(input())
+cnt=0
+arr=[list(map(int,input().split())) for _ in range(num)]
+arr.insert(0,[0]*num)
+arr.append([0]*num)
+for i in arr:
+    i.append(0)
+    i.insert(0,0)
+for i in range(1,num+1):
+    for j in range(1,num+1):
+        if all(arr[i][j]>arr[i+dx[k]][j+dy[k]] for k in range(4)):
+            cnt+=1
+print(cnt)
 
-a=[list(map(int,input().split())) for _ in range(num)]
 
-s=e=num//2
-sum=0
-for i in range(num):
-    for j in range(s,e+1):
-        #print(a[i][j])
-        sum+=a[i][j]
-    if(i<(num//2)):
-        s-=1
-        e+=1
-    else:
-        s+=1
-        e-=1
 
-print(sum)

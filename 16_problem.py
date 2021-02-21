@@ -1,23 +1,22 @@
-n=int(input())
-a=[list(map(int,input().split())) for _ in range(n)]
+num=int(input())
 
-largest=-2147000000
-for i in range(n):
-    sum1=sum2=0
-    for j in range(n):
-        sum1+=a[i][j]
-        sum2+=a[j][i]
-    if largest<sum1:
-        largest=sum1
-    if largest<sum2:
-        largest=sum2
+arr=[list(map(int,input().split())) for _ in range(num)]
+arr2=arr
+num2=int(input())
 
-for i in range(n):
-    sum1=a[i][i]
-    sum2=a[i][(n-1)-i]
-if largest < sum1:
-    largest = sum1
-if largest < sum2:
-    largest = sum2
-print(largest)
+for _ in range(num2):
+    a,b,c=map(int,input().split())
+    arr2=arr[a-1]
+    if(b==0):
+        for i in range(0,num):
+            if ((i+1)%c)!=0 :
+                arr2[a-1][i-c]=arr[a-1][i]
+
+            elif (i+1)%c==0:
+                tmp=(i+1)-c
+                arr2[(a-1)][(num-1)-tmp]=arr[(a-1)][i]
+    arr[(a-1)]=arr2[(a-1)]
+print(arr)
+
+
 
