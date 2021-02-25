@@ -18,7 +18,6 @@ a=0
 b=num
 sum=0
 for i in range(num):
-    print(a, b)
     for j in range(a,b):
         sum+=arr[i][j]
     if (i < (num // 2)):
