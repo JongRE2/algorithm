@@ -1,9 +1,17 @@
-arr=[list(map(int,input().split())) for _ in range(9)]
-
-dx=[0,-1,-1,-1,0,0,1,1,1]
-dy=[0,-1,0,1,-1,1,-1,0,1]
-
-str=1
-for i in arr:
+num=int(input())
 
 
+for i in range(num):
+    arr=input()
+    arr=arr.upper()
+    size=len(arr)
+    chk = 0
+    for j in range((size//2)):
+        if (arr[j] == arr[(size - 1) - j]):
+            continue
+        else:
+            chk = 1
+            print("#%d NO" %(i+1))
+            break
+    if(chk==0):
+        print("#%d YES" %(i+1))
