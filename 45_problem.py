@@ -1,21 +1,25 @@
-
-import sys
-def DFS(w,i):
-    global sum
-    if w > c:
+def DFS(i,w,pw):
+    global maxx
+    if w+(total-pw)<maxx:
+        return
+    if c<w:
         return
     if i==n:
-        if w>sum:
-            sum=w
-    else:
-        DFS(w + a[i], i + 1)
-        DFS(w, i + 1)
+        if maxx<w:
+            maxx=w
 
+    else:
+        DFS(i+1,w+arr[i],pw+arr[i])
+        DFS(i + 1, w,pw+arr[i])
 
 c,n=map(int,input().split())
-a=[0]*(n+1)
+
+arr=[0]*n
 for i in range(n):
-    a[i]=int(input())
-sum=-1
-DFS(0,0)
-print(sum)
+    arr[i]=int(input())
+maxx=-1
+total=sum(arr)
+DFS(0,0,0)
+print(maxx)
+
+# DFS(0,0,0,)
