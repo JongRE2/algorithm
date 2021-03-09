@@ -1,25 +1,22 @@
 
-def DFS(b,cnt):
-    global summ
-    global minn
-    if cnt >minn:
-        return
-    if money<b:
-        return
-    if b==money:
-        if minn > cnt:
-            minn=cnt
-            return
+def DFS(L):
+    global cnt
+    if L==m:
+        for i in range(L):
+            print(res[i],end=' ')
+        cnt+=1
+        print()
     else:
-        for i in range(n):
-            DFS(b+arr[i],cnt+1)
+        for j in range(1,n+1):
+            if ch[j]==0:
+                ch[j]=1
+                res[L]=j
+                DFS(L+1)
+                ch[j]=0
 
-
-
-n=int(input())
-arr=list(map(int,input().split()))
-arr.sort(reverse=True)
-money=int(input())
-minn=1000000
-DFS(0,0)
-print(minn)
+n,m=map(int,input().split())
+res=[0]*m
+ch=[0]*(n+1)
+cnt=0
+DFS(0)
+print(cnt)
